@@ -45,6 +45,18 @@ export default function Home() {
     getCars();
   }, [fuel, year, limit, manufacturer, model]);
 
+  const handleSetFuel = (selected: string | number) => {
+    if (typeof selected === "string") {
+      setFuel(selected);
+    }
+  };
+
+  const handleSetYear = (selected: string | number) => {
+    if (typeof selected === "number") {
+      setYear(selected);
+    }
+  };
+
   return (
     <main className=" overflow-hidden ">
       <Hero />
@@ -63,19 +75,19 @@ export default function Home() {
           />
           <div className="home__filter-container">
             <CustomFilter
-              setFilter={setFuel}
+              setFilter={handleSetFuel}
               title="fuel"
               options={fuels}
             />
             <CustomFilter
-              setFilter={setYear}
+              setFilter={handleSetYear}
               title="year"
               options={yearsOfProduction}
             />
           </div>
         </div>
 
-        {allCars.length > 0 ? (
+        {allCars.length > 0 && !loading ? (
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((car, index) => (

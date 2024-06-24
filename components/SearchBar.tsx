@@ -4,6 +4,7 @@ import { SearchManuFacturer } from "@/components";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import SearchManufacturer from "./SearchManuFacturer";
+import { SearchBarProps } from "@/types";
 interface SearchButtonProps {
   otherClasses: string;
 }
@@ -22,7 +23,7 @@ const SearchButton = ({ otherClasses }: SearchButtonProps) => {
     </button>
   );
 };
-const SearchBar = ({ setManuFacturer, setModel }) => {
+const SearchBar = ({ setManuFacturer, setModel }: SearchBarProps) => {
   const [searchManuFacturer, setSearchManuFacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
   const router = useRouter();

@@ -12,8 +12,8 @@ export interface CustomButtonProps {
 }
 
 export interface SearchManuFacturerProps {
-  manuFacturer: string;
-  setManuFacturer: (manuFactirer: string) => void;
+  selected: string;
+  setSelected: (manuFactirer: string) => void;
 }
 
 export interface FilterProps {
@@ -56,7 +56,12 @@ export interface OptionProps {
 export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
-  setFilter: (selected: string) => void;
+  setFilter: (selected: string | number) => void;
+}
+
+export interface SearchBarProps {
+  setModel: React.Dispatch<React.SetStateAction<string>>;
+  setManuFacturer: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface ShowMoreProps {

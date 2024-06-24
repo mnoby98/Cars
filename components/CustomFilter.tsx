@@ -12,7 +12,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { Fragment, useState } from "react";
 
-const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
+const CustomFilter: React.FC<CustomFilterProps> = ({
+  title,
+  options,
+  setFilter,
+}: CustomFilterProps) => {
   const router = useRouter();
   const [selected, setSelected] = useState(options[0]); // State for storing the selected option
 
